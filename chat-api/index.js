@@ -19,7 +19,7 @@ const DB = mongoose
   })
   .catch((err) => {
     console.log(err.message);
-  });
+  })
 
 const server = app.listen(process.env.PORT, () => {
   console.log(`Listening to ${process.env.PORT}`);
