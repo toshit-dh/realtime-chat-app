@@ -1,5 +1,3 @@
-Jai Shree Ram
-
 # Live Chatting App - React, Node.js, Express, MongoDB, Socket.io
 
 Welcome to the Live Chatting App, a real-time messaging platform built with React, Node.js, Express, MongoDB, and Socket.io. Connect with friends, send and receive messages instantly, and enjoy a seamless chatting experience.
@@ -48,10 +46,3 @@ Follow these simple steps to get started with the Live Chatting App:
 
 - **Real-time Chat:** Enjoy instant messaging with friends in real-time.
 
-## Layout and Icons
-
-The Live Chatting App is designed with a user-friendly layout and utilizes icons to enhance the overall experience.
-
-Feel free to explore the application and provide feedback for continuous improvement.
-
-Hare Krishna
