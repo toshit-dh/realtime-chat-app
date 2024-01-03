@@ -10,7 +10,6 @@ module.exports.addMessage = async (req, res, next) => {
     if (data) return res.json({ msg: "Message Added Successfully" });
     return res.json({ msg: "Message not added" });
   } catch (e) {
-    console.log(e.message);
     next(e);
   }
 };

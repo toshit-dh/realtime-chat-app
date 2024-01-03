@@ -26,6 +26,14 @@ const userSchema = mongoose.Schema({
     avatarImage: {
         type: String,
         default: ""
-    }
+    },
+    friends: {
+        type: Array,
+        default: []
+      },
+      friendRequests: {
+        type: Array,
+        default: []
+      }
 })
 module.exports = mongoose.model("Users",userSchema)

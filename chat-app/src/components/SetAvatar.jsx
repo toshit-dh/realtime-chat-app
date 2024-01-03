@@ -34,8 +34,9 @@ export default function SetAvatar() {
         image: avatars[selectedAvatar],
       });
       if (data.isSet) {
-        user.isAvatar = true;
+        user.isAvatarImageSet = true;
         user.avatarImage = data.image;
+        localStorage.setItem("user",JSON.stringify(user))
         navigate('/')
       } else {
         toast.error("Error setting avatar.", toastOptions);
@@ -45,7 +46,7 @@ export default function SetAvatar() {
   useEffect(() => {
     async function setImage() {
       const data = [];
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 3; i++) {
         const image = await axios.get(
           `${api}/${Math.round(Math.random() * 1000)}`
         );

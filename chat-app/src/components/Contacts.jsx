@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Logo from "../assets/logo.svg";
+import Logout from '../components/Logout'
 export default function Contacts({ contacts, currentUser, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrrentUserImage] = useState(undefined);
@@ -22,6 +23,7 @@ export default function Contacts({ contacts, currentUser, changeChat }) {
           <div className="brand">
             <img src={Logo} alt="logo" />
             <h3>Baatein</h3>
+            <Logout/>
           </div>
           <div className="contacts">
             {contacts.map((contact, index) => (
@@ -61,14 +63,16 @@ export default function Contacts({ contacts, currentUser, changeChat }) {
   );
 }
 const Container = styled.div`
+  width: 100%;
   display: grid;
   grid-template-rows: 10% 75% 15%;
   overflow: hidden;
   background-color: #080420;
   .brand{
+    padding: 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1rem;
     img{
         height: 2rem;

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import Logout from "./Logout";
 import ChatInput from "./ChatInput";
 import axios from "axios";
 import {v4 as uuidv4} from 'uuid'
 import { getAllMesssages, sendMessageRoute } from "../utils/api-routes";
-export default function ChatContainer({ currentChat, currentUser, socket }) {
+import LeaveChat from "./LeaveChat";
+export default function ChatContainer({ currentChat, currentUser, leaveChat, socket }) {
   const [messages, setMessages] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const scrollRef = useRef();
@@ -39,7 +39,6 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
   useEffect(() => {
     if (socket.current) {
       socket.current.on("msg-receive", (msg) => {
-        console.log(msg);
         setArrivalMessage({ fromSelf: false, message: msg });
       });
     }
@@ -56,6 +55,7 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
         <Container>
           <div className="chat-header">
             <div className="user-details">
+            <LeaveChat leaveChat={leaveChat}/>
               <div className="avatar">
                 <img
                   src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}
@@ -66,7 +66,7 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
                 <h3>{currentChat.username}</h3>
               </div>
             </div>
-            <Logout />
+
           </div>
           <div className="chat-messages">
             {messages.map((msg) => {
@@ -95,7 +95,7 @@ const Container = styled.div`
   padding: 1rem;
   display: grid;
   grid-template-rows: 10% 78% 12%;
-  gap: 0, 1rem;
+  gap: 0.1rem;
   overflow: hidden;
   @media screen and (min-width: 720px) and (max-width: 1080px) {
     grid-template-rows: 15% 70% 15%;
@@ -104,7 +104,9 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.2rem;
+    padding: 0.8rem;
+    background-color: #ffffff39;
+    border-radius: 0.5rem;
     .user-details {
       display: flex;
       align-items: center;
@@ -122,7 +124,7 @@ const Container = styled.div`
     }
   }
   .chat-messages {
-    padding: 1rem 2 rem;
+    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;

@@ -3,22 +3,23 @@ import styled from "styled-components";
 import Picker from "emoji-picker-react";
 import { IoMdSend } from "react-icons/io";
 import { BsEmojiSmileFill } from "react-icons/bs";
-export default function ChatInput({handleSendMsg}) {
+export default function ChatInput({ handleSendMsg }) {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [msg, setMsg] = useState("");
   const displayEmojiPicker = () => {
     setShowEmojiPicker(!showEmojiPicker);
   };
-  const handleEmojiClick = (event, emojiObject) => {
-    setMsg(prevInput => prevInput + emojiObject.emoji);
-    setShowEmojiPicker(false);
+  const handleEmojiClick = (emojiObject) => {
+    let message = msg;
+    message += emojiObject.emoji;
+    setMsg(message);
   };
 
   const handleSend = (e) => {
     e.preventDefault();
-    if(msg.length>0){
-      handleSendMsg(msg)
-      setMsg('')
+    if (msg.length > 0) {
+      handleSendMsg(msg);
+      setMsg("");
     }
   };
   return (
@@ -26,10 +27,12 @@ export default function ChatInput({handleSendMsg}) {
       <div className="button-container">
         <div className="emoji">
           <BsEmojiSmileFill onClick={displayEmojiPicker} />
-          {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
+          {showEmojiPicker && (
+            <Picker onEmojiClick={handleEmojiClick}/>
+          )}
         </div>
       </div>
-      <form className="input-container" onSubmit={(e)=>handleSend(e)}>
+      <form className="input-container" onSubmit={(e) => handleSend(e)}>
         <input
           type="text"
           placeholder="Type ....."
@@ -64,6 +67,11 @@ const Container = styled.div`
         font-size: 1.5rem;
         color: #ffff00c8;
         cursor: pointer;
+      }
+      .epr-skin-tone-select{
+        .epr-btn{
+          display: none;
+        }
       }
       .epr-main {
         position: absolute;

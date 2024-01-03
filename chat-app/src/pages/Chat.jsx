@@ -3,16 +3,19 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { io } from "socket.io-client";
 import styled from "styled-components";
-import { contactsRoute, host } from "../utils/api-routes";
+import { contactsRoute,host} from "../utils/api-routes";
 import Contacts from "../components/Contacts";
-import Welcome from "../components/Welcome";
 import ChatContainer from "../components/ChatContainer";
+import Aside from "../components/Aside";
 export default function Chat() {
   const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
+  const leaveChat = ()=>{
+    setCurrentChat(undefined)
+  }
   const navigate = useNavigate();
   useEffect(() => {
     async function setUser() {
@@ -56,9 +59,9 @@ export default function Chat() {
           changeChat={handleChatChange}
         />
         {isLoaded && currentChat === undefined ? (
-          <Welcome currentUser={currentUser} />
+           <Aside currentUser={currentUser}/>
         ) : (
-          <ChatContainer currentChat={currentChat} currentUser={currentUser} socket={socket}/>
+          <ChatContainer currentChat={currentChat} currentUser={currentUser} leaveChat={leaveChat} socket={socket}/>
         )}
       </div>
     </Container>

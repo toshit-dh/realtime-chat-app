@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use("/api/auth", userRoutes);
 app.use("/api/msgs", msgsRoutes);
-const DB = mongoose
+mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("DB Connected");

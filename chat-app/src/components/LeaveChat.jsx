@@ -1,16 +1,11 @@
 import React from "react";
-import { BiPowerOff } from "react-icons/bi";
+import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-export default function Logout() {
-  const navigate = useNavigate();
-  const handleClick = async () => {
-    localStorage.clear();
-    navigate("/login");
-  };
+export default function LeaveChat({leaveChat}) {
   return (
     <Button>
-      <BiPowerOff onClick={handleClick} />
+      <IoIosArrowBack onClick={leaveChat} />
     </Button>
   );
 }
