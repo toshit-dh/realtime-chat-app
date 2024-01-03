@@ -16,7 +16,7 @@ Follow these simple steps to get started with the Live Chatting App:
 
 1. **Clone the Repository:**
    ```
-   git clone https://github.com/your-username/live-chat-app.git
+   git clone https://github.com/toshit-dh/live-chat-app.git
    ```
 
 2. **Navigate to Chat API and Chat App:**
