@@ -1,6 +1,6 @@
 # Live Chatting App - React, Node.js, Express, MongoDB, Socket.io
 
-Welcome to the Live Chatting App, a real-time messaging platform built with React, Node.js, Express, MongoDB, and Socket.io. Connect with friends, send and receive messages instantly, and enjoy a seamless chatting experience.
+Welcome to the Live Chatting App, a real-time messaging platform built with ⚛️ React, 🖥️ Node.js, 🚀 Express, 🍃 MongoDB, and 🔌 Socket.io. Connect with friends, send and receive messages instantly, and enjoy a seamless chatting experience.
 
 ## Features
 
@@ -25,17 +25,23 @@ Follow these simple steps to get started with the Live Chatting App:
    cd live-chat-app/chat-app
    ```
 
-3. **Install Dependencies:**
+3. **Update MongoDB URL in .env file:**
+   Update the `MONGODB_URL` in the `.env` file in the `chat-api` directory with your MongoDB URL.
+   ```
+   MONGODB_URL=your_mongo_url_here
+   ```
+
+4. **Install Dependencies:**
    ```
    npm install
    ```
 
-4. **Start Both Applications:**
+5. **Start Both Applications:**
    ```
    npm start
    ```
 
-5. **Open Your Browser:**
+6. **Open Your Browser:**
    Open your preferred browser and navigate to `http://localhost:3000` to access the Live Chatting App.
 
 ## Usage
@@ -45,4 +51,3 @@ Follow these simple steps to get started with the Live Chatting App:
 - **Friend Requests:** Send and manage friend requests from the user interface.
 
 - **Real-time Chat:** Enjoy instant messaging with friends in real-time.
-
